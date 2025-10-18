@@ -1,0 +1,42 @@
+#!/bin/bash
+
+source $HOME/ros2_ws/.typerc
+#export ROS_DOMAIN_ID=42
+#export ROS_LOCALHOST_ONLY=0
+#export CYCLONEDDS_URI=file:///etc/cyclonedds/config.xml
+#export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export AUDIODRIVER=alsa
+
+export PATH="/home/ubuntu/.local/bin:$PATH"
+#export CUDA_HOME=/usr/local/cuda
+#export PATH=$CUDA_HOME/bin:$PATH
+#export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+#export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1:$LD_PRELOAD
+
+export LD_LIBRARY_PATH=/home/ubuntu/ros2_ws/src/third_party/ascamera/libs/lib/aarch64-linux-gnu:$LD_LIBRARY_PATH
+export working_space=/home/ubuntu
+export ROSDISTRO_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/rosdistro/index-v4.yaml
+
+# colcon_cd
+export _colcon_cd_root=$working_space/ros2_ws
+export RCUTILS_COLORIZED_OUTPUT=1
+source /usr/share/colcon_cd/function/colcon_cd.sh
+
+#node
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+if [ $ZSH_VERSION ]; then
+  #. /opt/ros/noetic/setup.sh
+  . /opt/ros/humble/setup.sh
+  . $working_space/ros2_ws/install/local_setup.zsh
+  . $working_space/third_party_ros2/third_party_ws/install/local_setup.zsh
+elif [ $BASH_VERSION ]; then
+  . /opt/ros/humble/setup.sh
+  . $working_space/ros2_ws/install/local_setup.bash
+  . $working_space/third_party_ros2/third_party_ws/install/local_setup.bash
+else
+  . /opt/ros/humble/setup.sh
+  . $working_space/ros2_ws/install/local_setup.sh
+  . $working_space/third_party_ros2/third_party_ws/install/local_setup.sh
+fi

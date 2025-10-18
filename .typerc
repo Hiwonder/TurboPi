@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# 当期版本
+export VERSION="|V1.0.0|2025-03-27|"
+
+# 雷达类型：A1/A2/C1/G4/S2L/LD14P/MS200
+#export LIDAR_TYPE=LD19
+
+
+# 深度摄像头类型：AstraPro/AstraProPlus/None
+#export DEPTH_CAMERA_TYPE=ascamera
+
+# 机器类型：JetAcker
+export MACHINE_TYPE=TurboPi
+
+# 主从机设置：robot_xxx
+export HOST=/ #robot_1
+export MASTER=/ #robot_1
+
+# 语言设置，主要涉及语音部分：Chinese/English
+export ASR_LANGUAGE=Chinese
+
+export need_compile=False
+#export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_DOMAIN_ID=0
+#export ROS_DOMAIN_ID=42 # Numbers from 0 to 232
+#export ROS_LOCALHOST_ONLY=1
+export CYCLONEDDS_URI=file:///etc/cyclonedds/config.xml
+
+echo -e "\033[32m----------------------------------------------
+当前环境是ROS2|The current environment is ROS2
+----------------------------------------------\033[0m"
+#echo -e "LIDAR:   \033[32m$LIDAR_TYPE\033[0m"
+#echo -e "CAMERA:  \033[32m$DEPTH_CAMERA_TYPE\033[0m"
+echo -e "MACHINE: \033[32m$MACHINE_TYPE\033[0m"
+echo -e "HOST:    \033[32m$HOST\033[0m"
+echo -e "MASTER:  \033[32m$MASTER\033[0m"
+echo -e "ROS_DOMAIN_ID: \033[32m$ROS_DOMAIN_ID\033[0m"
+echo -e "VERSION: \033[32m$VERSION\033[0m"

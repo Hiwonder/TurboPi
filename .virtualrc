@@ -1,0 +1,22 @@
+#!/bin/bash
+
+source $HOME/ros2_ws/.typerc
+
+export working_space=/home/ubuntu
+export need_compile=False
+
+# colcon_cd
+export _colcon_cd_root=$working_space/ros2_ws
+export RCUTILS_COLORIZED_OUTPUT=1
+source /usr/share/colcon_cd/function/colcon_cd.sh
+
+if [ $ZSH_VERSION ]; then
+  . /opt/ros/galactic/setup.sh
+  . $working_space/ros2_ws/install/local_setup.zsh
+elif [ $BASH_VERSION ]; then
+  . /opt/ros/galactic/setup.sh
+  . $working_space/ros2_ws/install/local_setup.bash
+else
+  . /opt/ros/galactic/setup.sh
+  . $working_space/ros2_ws/install/local_setup.sh
+fi

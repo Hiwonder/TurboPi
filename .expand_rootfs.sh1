@@ -1,0 +1,33 @@
+#!/bin/bash
+sleep 5
+
+do_expand_fs() {
+    echo "Expanding $PARTITION..."
+    PARTITION="/dev/nvme0n1p1"
+    PARTUUID=$(sudo blkid -s PARTUUID -o value $PARTITION)
+    PARTITION_NUM=${PARTITION##*e0n*p}
+    DISK=${PARTITION%%p*}
+
+    # Get the starting offset of the root partition
+    echo $PARTUUID $PARTITION_NUM $DISK
+    PART_START=$(sudo parted ${DISK} -ms unit s p | grep "^${PARTITION_NUM}:" | cut -f 2 -d: | sed 's/[^0-9]//g')
+    [ "$PART_START" ] || return 1
+    echo $PART_START
+    echo -e "d\n$PARTITION_NUM\nn\n$PARTITION_NUM\n$PART_START\n\nN\n\nw\n\n"|fdisk $DISK 2>&1
+    #Use gdisk to change the disk's UUID
+    echo -e "x\nc\n$PARTITION_NUM\n$PARTUUID\nm\nw\ny\nq\n" | sudo gdisk $DISK
+    sleep 0.5
+    resize2fs $PARTITION
+}
+
+if [[ $EUID -ne 0 ]]; then
+    echo "This script must be run as root!" 1>&2
+    sudo $0 $@
+fi
+
+do_expand_fs
+
+if [[ !($@ =~ "no_reboot") ]];then
+    sudo systemctl disable expand_rootfs.service
+    sudo reboot -d -f
+fi
