@@ -74,7 +74,7 @@ turbopi_ros2/
 ## 官方资源
 
 ### Hiwonder官方
-- **官方网站**: [https://www.hiwonder.net/](https://www.hiwonder.net/)
+- **官方网站**: [https://www.hiwonder.com/](https://www.hiwonder.com/)
 - **产品页面**: [https://www.hiwonder.com/products/turbopi](https://www.hiwonder.com/products/turbopi)
 - **官方文档**: [https://docs.hiwonder.com/projects/TurboPi/en/advanced/](https://docs.hiwonder.com/projects/TurboPi/en/advanced/)
 - **技术支持**: support@hiwonder.com

@@ -72,7 +72,7 @@ turbopi_ros2/
 ## Official Resources
 
 ### Official Hiwonder
-- **Official Website**: [https://www.hiwonder.net/](https://www.hiwonder.net/)
+- **Official Website**: [https://www.hiwonder.com/](https://www.hiwonder.com/)
 - **Product Page**: [https://www.hiwonder.com/products/turbopi](https://www.hiwonder.com/products/turbopi)
 - **Official Documentation**: [https://docs.hiwonder.com/projects/TurboPi/en/advanced/](https://docs.hiwonder.com/projects/TurboPi/en/advanced/)
 - **Technical Support**: support@hiwonder.com
