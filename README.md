@@ -3,7 +3,7 @@
 English | [中文](https://github.com/Hiwonder/TurboPi/blob/ros2/README_cn.md)
 
 <p align="center">
-  <img src="sources/images/image.png" alt="TurboPi Logo" width="400"/>
+  <img src="sources/images/turbopi.png" alt="TurboPi Logo" width="600"/>
 </p>
 
 ## Product Overview
