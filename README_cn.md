@@ -16,7 +16,7 @@ TurboPi是一款基于树莓派开发，专为初学者设计的开源AI视觉�
 
 ### Hiwonder官方
 
-- **官方网站**: [https://www.hiwonder.net/](https://www.hiwonder.net/)
+- **官方网站**: [https://www.hiwonder.com/](https://www.hiwonder.com/)
 - **产品页面**: [https://www.hiwonder.com/products/turbopi](https://www.hiwonder.com/products/turbopi)
 - **官方文档**: [https://docs.hiwonder.com/projects/TurboPi/en/standard/](https://docs.hiwonder.com/projects/TurboPi/en/standard/)
 - **技术支持**: support@hiwonder.com
